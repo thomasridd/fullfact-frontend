@@ -56,7 +56,9 @@ function search() {
 			if(data.matches.length > 0) {
 				// display results
 				$('#results').append(getGood(data.matches[0]));
-			} 
+			}  else {
+				$('#results').append(getBad());
+			}
 		},
 		failure: function(data) {
 			console.log("failure");
@@ -68,10 +70,21 @@ function getGood(item) {
 
 	var output = '<li>' + 
 	'<div class="list-left">' +
+	'<img src="img/found.png">' + 
+	'</div>' + 
+	'<div class="list-right">' +
+	'<h3> Hurrah - we have found a match and it\'s id is ' + item[0] + '</h3>'
+	return output;
+}
+
+function getBad() {
+
+	var output = '<li>' + 
+	'<div class="list-left">' +
 	'<img src="img/not_found.png">' + 
 	'</div>' + 
 	'<div class="list-right">' +
-	'<h3> Hurrah - we have found a match and it\'s id is ' + item.id + '</h3>'
+	'<h3> Alas - none of our queries match</h3>'
 
 	return output;
 }
