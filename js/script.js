@@ -45,7 +45,7 @@ function search() {
 
 	// Run POST Request on API
 	$.ajax({
-		url: "http://localhost:8080/match",
+		url: "https://fullfact-hackday.herokuapp.com/match",
 		type: "POST",
 		data: JSON.stringify(inputDocument),
 		contentType:"application/json; charset=utf-8",
